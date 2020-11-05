@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "blackjack"
+    }
+  },
+  "defaultProject": "blackjack",
+  "cli": {
+    "analytics": "3fd54ec0-8ae8-4674-a830-753baf43e144"
+  }
 }
