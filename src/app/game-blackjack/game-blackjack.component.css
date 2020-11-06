@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
+.cardholder{
+    text-align: center;
+    width:160px;
+    height:230px;
+}
+.bjtable{
+    padding-top: 200px;
+    width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.hitButton{
+    width: 120px;
+    height: 100px;
+    text-align: center;
+    font-family: 'Roboto','sans-serif';
+    font-size: 35px;
+    font-weight: 100;
+    background-color: #999999;
+    color: azure;
+    outline:none;
+}
+.hitButton-disabled{
+    width: 120px;
+    height: 100px;
+    text-align: center;
+    font-family: 'Roboto','sans-serif';
+    font-size: 35px;
+    font-weight: 100;
+    background-color: #999999;
+    color: #7A7A7A;
+    outline:none;
+}
+.handTitle{
+    font-family: 'Roboto','sans-serif';
+    font-weight: 100;
+    color: azure;
+    font-size: 60px;
+}
+.bjlabel{
+    font-family: 'Roboto','sans-serif';
+    font-weight: 100;
+    color: azure;
+    font-size: 30px;
+}

@@ -1,0 +1,139 @@
+<div class="bjtable">
+    <div style="text-align: center;">
+        <h1 class="handTitle">Dealer's Hand</h1>
+    </div>
+    <br>
+    <br>
+    <table *ngIf="!bjflag">
+        <tr>
+            <td>
+                <table>
+                    <tr *ngFor="let card of cards1Deal">
+                        <td *ngIf="standFlag">
+                            <div class="cardholder">
+                                <img src="assets/img/{{card.name}}.png">
+                            </div>
+                        </td>
+                        <td *ngIf="!standFlag">
+                            <div class="cardholder">
+                                <img src="assets/img/card_back.png">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <tr *ngFor="let card of cards2Deal">
+                        <td>
+                            <div class="cardholder">
+                                <img src="assets/img/{{card.name}}.png">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <br>
+    <br>
+    <div style="text-align: center;">
+        <h1 class="handTitle">Your Hand</h1>
+    </div>
+    <br>
+    <br>
+    <table>
+        <tr>
+            <td>
+                <table>
+                    <tr *ngFor="let card of cards1">
+                        <td>
+                            <div class="cardholder">
+                                <img src="assets/img/{{card.name}}.png">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <tr *ngFor="let card of cards2">
+                        <td>
+                            <div class="cardholder">
+                                <img src="assets/img/{{card.name}}.png">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <tr *ngFor="let card of cards3">
+                        <td *ngIf="cardDrawCount>2">
+                            <div class="cardholder">
+                                <img src="assets/img/{{card.name}}.png">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <tr *ngFor="let card of cards4">
+                        <td *ngIf="cardDrawCount>3">
+                            <div class="cardholder">
+                                <img src="assets/img/{{card.name}}.png">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <tr *ngFor="let card of cards5">
+                        <td *ngIf="cardDrawCount==5">
+                            <div class="cardholder">
+                                <img src="assets/img/{{card.name}}.png">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <br>
+    <div *ngIf="!bjflag&&!twoAflag&&!bustFlag&&!twentyoneFlag" style="text-align: center;">
+        <p class="bjlabel">{{handValue}}</p>
+    </div>
+    <div *ngIf="bjflag" style="text-align: center;">
+        <p class="bjlabel">Blackjack</p>
+    </div>
+    <div *ngIf="twoAflag" style="text-align: center;">
+        <p class="bjlabel">Double Ace</p>
+    </div>
+    <div *ngIf="bustFlag" style="text-align: center;">
+        <p class="bjlabel">Bust</p>
+    </div>
+    <div *ngIf="twentyoneFlag" style="text-align: center;">
+        <p class="bjlabel">Twenty One</p>
+    </div>
+    <br>
+    <br>
+    <div style="text-align: center;margin: auto; height: 110px; width: 280px">
+        <table>
+            <tr>
+                <td  style="padding: 10px;"> 
+                    <button mat-raised-button class="hitButton"(click)="this.drawYourCard()" [disabled]="cardDrawCount>4 || bustFlag || twentyoneFlag || twoAflag">Hit</button>
+                    <!--<button *ngIf="cardDrawCount>4 || bustFlag" mat-raised-button class="hitButton-disabled">Hit</button>-->
+                </td>
+                <td style="padding: 10px;">
+                    <button mat-raised-button class="hitButton" (click)="this.reset()">Stand</button>
+                </td>
+            </tr>
+        </table>        
+    </div>
+</div>
+
+  
