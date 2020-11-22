@@ -10,7 +10,6 @@ import { Card } from '../card';
 export class GameBlackjackComponent implements OnInit {
   difficulty: string;
   dealerMessage: string;
-  deckCap: number = 51;
   bjflag: boolean = false;
   twoAflag: boolean = false;
   cardDrawCount: number = 2;
@@ -332,10 +331,9 @@ export class GameBlackjackComponent implements OnInit {
     this.cardDrawCount++;
   }
   drawACard(): Card{
-    var drawNo = this.randomInt(0,this.deckCap);
+    var drawNo = this.randomInt(0,this.deck.length);
     var drawCard=this.deck[drawNo];
     this.deck.splice(drawNo,1);
-    this.deckCap--;
     return drawCard;
   }
   newDeck(): void{
