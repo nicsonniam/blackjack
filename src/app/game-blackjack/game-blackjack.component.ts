@@ -103,7 +103,6 @@ export class GameBlackjackComponent implements OnInit {
     }
   }
   reset(): void{
-    this.deckCap=51;
     this.standFlag=false; 
     this.gameOverFlag=false;
     this.dealerMessage = "";
