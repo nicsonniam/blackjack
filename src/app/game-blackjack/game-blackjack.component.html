@@ -3,8 +3,11 @@
         <h1 class="handTitle">Dealer's Hand</h1>
     </div>
     <br>
+    <p *ngIf="standFlag&&gameOverFlag" class="bjlabel" style="text-align: center;">{{dealerHandValue}}</p>
+    <p *ngIf="!standFlag&&!gameOverFlag" class="bjlabel" style="text-align: center;">???</p>
+    <p class="bjlabel" style="text-align: center;">{{dealerMessage}}</p>
     <br>
-    <table *ngIf="!bjflag">
+    <table>
         <tr>
             <td>
                 <table>
@@ -25,6 +28,39 @@
             <td>
                 <table>
                     <tr *ngFor="let card of cards2Deal">
+                        <td>
+                            <div class="cardholder">
+                                <img src="assets/img/{{card.name}}.png">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <tr *ngFor="let card of cards3Deal">
+                        <td>
+                            <div class="cardholder">
+                                <img src="assets/img/{{card.name}}.png">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <tr *ngFor="let card of cards4Deal">
+                        <td>
+                            <div class="cardholder">
+                                <img src="assets/img/{{card.name}}.png">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <tr *ngFor="let card of cards5Deal">
                         <td>
                             <div class="cardholder">
                                 <img src="assets/img/{{card.name}}.png">
@@ -125,11 +161,14 @@
         <table>
             <tr>
                 <td  style="padding: 10px;"> 
-                    <button mat-raised-button class="hitButton"(click)="this.drawYourCard()" [disabled]="cardDrawCount>4 || bustFlag || twentyoneFlag || twoAflag">Hit</button>
+                    <button mat-raised-button class="hitButton"(click)="this.drawYourCard()" [disabled]="gameOverFlag ||cardDrawCount>4 || bustFlag || twentyoneFlag || twoAflag">Hit</button>
                     <!--<button *ngIf="cardDrawCount>4 || bustFlag" mat-raised-button class="hitButton-disabled">Hit</button>-->
                 </td>
-                <td style="padding: 10px;">
-                    <button mat-raised-button class="hitButton" (click)="this.reset()">Stand</button>
+                <td *ngIf="!gameOverFlag" style="padding: 10px;">
+                    <button mat-raised-button class="hitButton" (click)="this.stand()">Stand</button>
+                </td>
+                <td *ngIf="gameOverFlag" style="padding: 10px;">
+                    <button mat-raised-button class="hitButton" (click)="this.reset()">New</button>
                 </td>
             </tr>
         </table>        
